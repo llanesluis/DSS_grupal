@@ -15,8 +15,8 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<CriteriosFinales> CriteriosFinales { get; set; }
     public virtual DbSet<FaseProceso> FaseProcesos { get; set; }
     public virtual DbSet<LluviaIdea> LluviaIdeas { get; set; }
-    public virtual DbSet<PesoFinal> PesoFinals { get; set; }
-    public virtual DbSet<PesoPropuesto> PesoPropuestos { get; set; }
+    public virtual DbSet<PesoFinal> PesosFinales { get; set; }
+    public virtual DbSet<PesoPropuesto> PesosPropuestos { get; set; }
     public virtual DbSet<Proyecto> Proyectos { get; set; }
     public virtual DbSet<ProyectoUsuario> ProyectoUsuarios { get; set; }
     public virtual DbSet<Usuario> Usuarios { get; set; }
@@ -233,12 +233,12 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.IdProyecto).HasColumnName("id_proyecto");
             entity.Property(e => e.Peso).HasColumnName("peso");
 
-            entity.HasOne(d => d.IdCriterioNavigation).WithMany(p => p.PesoFinals)
+            entity.HasOne(d => d.IdCriterioNavigation).WithMany(p => p.PesosFinales)
                 .HasForeignKey(d => d.IdCriterio)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("peso_final_id_criterio_fkey");
 
-            entity.HasOne(d => d.IdProyectoNavigation).WithMany(p => p.PesoFinals)
+            entity.HasOne(d => d.IdProyectoNavigation).WithMany(p => p.PesosFinales)
                 .HasForeignKey(d => d.IdProyecto)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("peso_final_id_proyecto_fkey");
@@ -254,7 +254,7 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.IdCriterio).HasColumnName("id_criterio");
             entity.Property(e => e.Valor).HasColumnName("valor");
 
-            entity.HasOne(d => d.IdCriterioNavigation).WithMany(p => p.PesoPropuestos)
+            entity.HasOne(d => d.IdCriterioNavigation).WithMany(p => p.PesosPropuestos)
                 .HasForeignKey(d => d.IdCriterio)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("peso_propuesto_id_criterio_fkey");

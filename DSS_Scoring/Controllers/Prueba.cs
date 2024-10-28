@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿﻿using DSS_Scoring.Data;
+using DSS_Scoring.Models;
+using Mapster;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +12,21 @@ namespace DSS_Scoring.Controllers
     [ApiController]
     public class Prueba : ControllerBase
     {
+
+        private MyDbContext _context;
+        public Prueba(MyDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: api/<Prueba>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Usuario> Get()
         {
-            return new string[] { "value1", "value2" };
+            var usuario = _context.Usuarios;
+            
+            return usuario;
+
         }
 
         // GET api/<Prueba>/5
