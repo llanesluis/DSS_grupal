@@ -20,7 +20,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers().AddControllersAsServices();
 
 // Add the Swagger services
-// TODO: Agregar la documentación de Swagger con el XML de los comentarios
+// TODO: Agregar la documentaciï¿½n de Swagger con el XML de los comentarios
 builder.Services.AddSwaggerGen(c => { 
     c.SwaggerDoc("v1", new() { Title = "DSS_Grupal", 
         Version = "v1",
@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen(c => {
 
 // Agregar el DbContext para usarlo en la app
 builder.Services.AddDbContext<MyDbContext>(options => {
-    var connectionString = builder.Configuration.GetConnectionString("SUPABASE_CONNECTION");
+    var connectionString = builder.Configuration.GetConnectionString("NEON_CONNECTION");
     options.UseNpgsql(connectionString);
 });
 
