@@ -17,9 +17,9 @@ public partial class Criterio
 
     public virtual Proyecto? IdProyectoNavigation { get; set; }
 
-    public virtual ICollection<PesoFinal> PesoFinals { get; set; } = new List<PesoFinal>();
+    public virtual ICollection<PesoFinal> PesosFinales { get; set; } = new List<PesoFinal>();
 
-    public virtual ICollection<PesoPropuesto> PesoPropuestos { get; set; } = new List<PesoPropuesto>();
+    public virtual ICollection<PesoPropuesto> PesosPropuestos { get; set; } = new List<PesoPropuesto>();
 
     public virtual ICollection<VotacionCriterio> VotacionCriterios { get; set; } = new List<VotacionCriterio>();
 }

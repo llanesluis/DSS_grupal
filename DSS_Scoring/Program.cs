@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen(c => {
 
 // Agregar el DbContext para usarlo en la app
 builder.Services.AddDbContext<MyDbContext>(options => {
-    var connectionString = builder.Configuration.GetConnectionString("NEON_CONNECTION");
+    var connectionString = builder.Configuration.GetConnectionString("SUPABASE_CONNECTION");
     options.UseNpgsql(connectionString);
 });
 

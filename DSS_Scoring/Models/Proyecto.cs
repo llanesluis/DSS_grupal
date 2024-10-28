@@ -31,7 +31,7 @@ public partial class Proyecto
 
     public virtual ICollection<LluviaIdea> LluviaIdeas { get; set; } = new List<LluviaIdea>();
 
-    public virtual ICollection<PesoFinal> PesoFinals { get; set; } = new List<PesoFinal>();
+    public virtual ICollection<PesoFinal> PesosFinales { get; set; } = new List<PesoFinal>();
 
     public virtual ICollection<ProyectoUsuario> ProyectoUsuarios { get; set; } = new List<ProyectoUsuario>();
 
