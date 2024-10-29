@@ -31,7 +31,7 @@ namespace DSS_Scoring.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("IdProyecto")
+                    b.Property<int>("IdProyecto")
                         .HasColumnType("integer")
                         .HasColumnName("id_proyecto");
 
@@ -159,11 +159,11 @@ namespace DSS_Scoring.Migrations
                         .HasColumnType("time without time zone")
                         .HasColumnName("hora");
 
-                    b.Property<int?>("IdProyecto")
+                    b.Property<int>("IdProyecto")
                         .HasColumnType("integer")
                         .HasColumnName("id_proyecto");
 
-                    b.Property<int?>("IdUsuario")
+                    b.Property<int>("IdUsuario")
                         .HasColumnType("integer")
                         .HasColumnName("id_usuario");
 
@@ -191,7 +191,7 @@ namespace DSS_Scoring.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("IdProyecto")
+                    b.Property<int>("IdProyecto")
                         .HasColumnType("integer")
                         .HasColumnName("id_proyecto");
 
@@ -581,6 +581,7 @@ namespace DSS_Scoring.Migrations
                         .WithMany("Alternativas")
                         .HasForeignKey("IdProyecto")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("alternativa_id_proyecto_fkey");
 
                     b.Navigation("IdProyectoNavigation");
@@ -649,12 +650,14 @@ namespace DSS_Scoring.Migrations
                         .WithMany("Chats")
                         .HasForeignKey("IdProyecto")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("chat_id_proyecto_fkey");
 
                     b.HasOne("DSS_Scoring.Models.Usuario", "IdUsuarioNavigation")
                         .WithMany("Chats")
                         .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired()
                         .HasConstraintName("chat_id_usuario_fkey");
 
                     b.Navigation("IdProyectoNavigation");
@@ -668,6 +671,7 @@ namespace DSS_Scoring.Migrations
                         .WithMany("Criterios")
                         .HasForeignKey("IdProyecto")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("criterio_id_proyecto_fkey");
 
                     b.Navigation("IdProyectoNavigation");
