@@ -7,7 +7,7 @@ public partial class Alternativa
 {
     public int Id { get; set; }
 
-    public int? IdProyecto { get; set; }
+    public int IdProyecto { get; set; }
 
     public string Nombre { get; set; } = null!;
 

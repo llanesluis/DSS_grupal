@@ -12,6 +12,6 @@ public class ProyectoDTO
     [Required]
     public string Objetivo { get; set; } = null!;
 
-    [Required]
+    [Required (ErrorMessage = "El campo IdFacilitador es requerido y debe ser un Id que corresponda a un usuario con el rol Facilitador")]
     public int IdFacilitador { get; set; }
 }
