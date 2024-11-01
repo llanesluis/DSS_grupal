@@ -1,0 +1,61 @@
+@page "/Categorizador"
+
+<PageTitle>Categorizador</PageTitle>
+
+<div>
+    <h1>Categorizador</h1>
+</div>
+
+<!-- Selección de proyecto -->
+<div class="mb-3">
+    <label for="projectSelect" class="form-label">Seleccionar Proyecto</label>
+    <select id="projectSelect" class="form-select">
+        <option value="">-- Selecciona un proyecto --</option>
+        <option>Proyecto A</option>
+        <option>Proyecto B</option>
+        <option>Proyecto C</option>
+    </select>
+</div>
+
+<!-- Lista de criterios del proyecto seleccionado -->
+<div class="mb-3">
+    <h3>Criterios del Proyecto Seleccionado</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <input type="checkbox" /> Criterio 1
+        </li>
+        <li class="list-group-item">
+            <input type="checkbox" /> Criterio 2
+        </li>
+        <li class="list-group-item">
+            <input type="checkbox" /> Criterio 3
+        </li>
+    </ul>
+</div>
+
+<!-- Input para agregar una nueva categoría -->
+<div class="input-group my-3">
+    <input type="text" class="form-control" placeholder="Nueva categoría" />
+    <button class="btn btn-primary">Agregar a Categoría</button>
+</div>
+
+<!-- Muestra de categorías creadas (solo diseño visual) -->
+<div>
+    <h3>Categorías</h3>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <strong>Categoría 1</strong>
+            <ul>
+                <li>Criterio 1</li>
+                <li>Criterio 2</li>
+            </ul>
+        </li>
+        <li class="list-group-item">
+            <strong>Categoría 2</strong>
+            <ul>
+                <li>Criterio 3</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+@code {}
