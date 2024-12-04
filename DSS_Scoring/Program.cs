@@ -3,6 +3,7 @@ using DSS_Scoring.Client.Pages;
 using DSS_Scoring.Components;
 using DSS_Scoring.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,19 +19,6 @@ builder.Services.AddEndpointsApiExplorer();
 
 // Add the controllers to the services collection
 builder.Services.AddControllers().AddControllersAsServices();
-
-// Add the Swagger services
-// TODO: Agregar la documentaci�n de Swagger con el XML de los comentarios
-builder.Services.AddSwaggerGen(c => { 
-    c.SwaggerDoc("v1", new() { Title = "DSS_Grupal", 
-        Version = "v1",
-        Description = "API DSS Scoring Grupal"
-    });
-
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}";
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //c.IncludeXmlComments(xmlPath);
-});
 
 // Agregar el DbContext para usarlo en la app
 builder.Services.AddDbContext<MyDbContext>(options => {
@@ -55,6 +43,18 @@ builder.Services.AddCors(opciones => {
     });
 });
 
+// Add the Swagger services
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c => { 
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "DSS_Grupal", 
+        Version = "v1",
+        Description = "API DSS Scoring Grupal"
+    });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    c.IncludeXmlComments(xmlPath);
+});
 
 var app = builder.Build();
 
@@ -65,8 +65,8 @@ if (app.Environment.IsDevelopment())
 
     // Enable middleware to serve generated Swagger as a JSON endpoint.
     app.UseSwagger();
-    app.UseSwaggerUI(c => { 
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "DSS_Grupal");
+    app.UseSwaggerUI(c=>{
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "DSS Scoring Grupal");
     });
 }
 else

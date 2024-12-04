@@ -21,6 +21,15 @@ namespace DSS_Scoring.Controllers
 
         // Obtener una lista de todos los criterios
         // GET /api/criterios
+        /// <summary>
+        /// Obtener una lista de todos los criterios
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// GET http://localhost:xxxx/api/criterios
+        /// </remarks>
+        /// <returns>Lista de criterios</returns>
         [HttpGet]
         public ResponseAPI<IEnumerable<CriterioDTO>> GetCriterios()
         { 
@@ -42,6 +51,19 @@ namespace DSS_Scoring.Controllers
 
         // Obtener un criterio por su ID
         // GET /api/criterios/{id}
+        /// <summary>
+        /// Obtener un criterio por su ID
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// GET http://localhost:xxxx/api/criterios/{id}
+        /// 
+        /// Ejemplo:
+        /// GET http://localhost:xxxx/api/criterios/1
+        /// </remarks>
+        /// <param name="id">ID del criterio</param>
+        /// <returns>El criterio correspondiente al ID</returns>
         [HttpGet("{id}")]
         public ResponseAPI<CriterioDTO> GetCriterioById(int id)
         { 
@@ -65,6 +87,19 @@ namespace DSS_Scoring.Controllers
 
         // Obtener los criterios de un proyecto
         // GET /api/criterios/proyecto/{id}
+        /// <summary>
+        /// Obtener los criterios asociados a un proyecto
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// GET http://localhost:xxxx/api/criterios/proyecto/{id}
+        /// 
+        /// Ejemplo:
+        /// GET http://localhost:xxxx/api/criterios/proyecto/1
+        /// </remarks>
+        /// <param name="id">ID del proyecto</param>
+        /// <returns>Lista de criterios asociados al proyecto</returns>
         [HttpGet("proyecto/{id}")]
         public ResponseAPI<IEnumerable<CriterioDTO>> GetCriteriosByProyecto(int id)
         { 
@@ -90,6 +125,22 @@ namespace DSS_Scoring.Controllers
 
         // Crear un criterio
         // POST /api/criterios
+        /// <summary>
+        /// Crear un nuevo criterio
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// POST http://localhost:xxxx/api/criterios
+        /// 
+        /// Body:
+        /// {
+        ///   "idProyecto": 1,
+        ///   "nombre": "Criterio de evaluación"
+        /// }
+        /// </remarks>
+        /// <param name="criterio">Datos del nuevo criterio</param>
+        /// <returns>Criterio creado</returns>
         [HttpPost]
         public ResponseAPI<CriterioDTO> CreateCriterio(CriterioDTO criterio)
         { 
@@ -113,6 +164,23 @@ namespace DSS_Scoring.Controllers
 
         // Editar un criterio
         // PUT /api/criterios/{id}
+        /// <summary>
+        /// Editar un criterio existente
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// PUT http://localhost:xxxx/api/criterios/{id}
+        /// 
+        /// Body:
+        /// {
+        ///   "idProyecto": 1,
+        ///   "nombre": "Nuevo nombre del criterio"
+        /// }
+        /// </remarks>
+        /// <param name="id">ID del criterio a editar</param>
+        /// <param name="criterio">Datos actualizados del criterio</param>
+        /// <returns>Criterio editado</returns>
         [HttpPut("{id}")]
         public ResponseAPI<CriterioDTO> EditCriterio(int id, CriterioDTO criterio)
         { 
@@ -142,6 +210,19 @@ namespace DSS_Scoring.Controllers
 
         // Eliminar un criterio
         // DELETE /api/criterios/{id}
+        /// <summary>
+        /// Eliminar un criterio
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// DELETE http://localhost:xxxx/api/criterios/{id}
+        /// 
+        /// Ejemplo:
+        /// DELETE http://localhost:xxxx/api/criterios/1
+        /// </remarks>
+        /// <param name="id">ID del criterio a eliminar</param>
+        /// <returns>Criterio eliminado</returns>
         [HttpDelete("{id}")]
         public ResponseAPI<CriterioDTO> DeleteCriterio(int id)
         { 

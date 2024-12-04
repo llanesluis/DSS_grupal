@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DSS_Scoring.Models;
 
-public partial class LluviaIdeas
+public partial class LluviaIdea
 {
     public int Id { get; set; }
 

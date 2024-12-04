@@ -21,6 +21,15 @@ namespace DSS_Scoring.Controllers
 
         // Obtener una lista de todos los proyectos
         // GET /api/proyectos
+        /// <summary>
+        /// Obtener una lista de todos los proyectos
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// GET http://localhost:xxxx/api/proyectos
+        /// </remarks>
+        /// <returns>Lista de proyectos</returns>
         [HttpGet]
         public ResponseAPI<IEnumerable<ProyectoDTO>> GetProyectos()
         { 
@@ -42,6 +51,20 @@ namespace DSS_Scoring.Controllers
 
         // Obtener un proyecto por su ID
         // GET /api/proyectos/{id}
+        /// <summary>
+        /// Obtener un proyecto por su ID
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// GET http://localhost:xxxx/api/proyectos/{id}
+        /// 
+        /// Ejemplo:
+        /// GET http://localhost:xxxx/api/proyectos/1
+        /// </remarks>
+        /// <param name="id">ID del proyecto</param>
+        /// <returns>Un proyecto</returns>
+        
         [HttpGet("{id}")]
         public ResponseAPI<ProyectoDTO> GetUserById(int id)
         { 
@@ -65,6 +88,23 @@ namespace DSS_Scoring.Controllers
 
         // Crear un proyecto
         // POST /api/proyectos
+        /// <summary>
+        /// Crear un proyecto
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// POST http://localhost:xxxx/api/proyectos
+        /// 
+        /// Body:
+        /// {
+        ///   "nombre": "Proyecto A",
+        ///   "objetivo": "Desarrollar un sistema eficiente",
+        ///   "idFacilitador": 1
+        /// }
+        /// </remarks>
+        /// <param name="proyecto">Datos del proyecto a crear</param>
+        /// <returns>El proyecto creado</returns>
         [HttpPost]
         public ResponseAPI<ProyectoDTO> CreateProyecto(ProyectoDTO proyecto)
         { 
@@ -94,6 +134,24 @@ namespace DSS_Scoring.Controllers
 
         // Editar un proyecto
         // PUT /api/proyectos/{id}
+        /// <summary>
+        /// Editar un proyecto existente
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// PUT http://localhost:xxxx/api/proyectos/{id}
+        /// 
+        /// Body:
+        /// {
+        ///   "nombre": "Proyecto Actualizado",
+        ///   "objetivo": "Actualizar las metas del proyecto",
+        ///   "idFacilitador": 1
+        /// }
+        /// </remarks>
+        /// <param name="id">ID del proyecto a editar</param>
+        /// <param name="proyecto">Datos actualizados del proyecto</param>
+        /// <returns>El proyecto actualizado</returns>
         [HttpPut("{id}")]
         public ResponseAPI<ProyectoDTO> EditProyecto(int id, ProyectoDTO proyecto)
         { 
@@ -129,6 +187,19 @@ namespace DSS_Scoring.Controllers
 
         // Eliminar un proyecto
         // DELETE /api/proyectos/{id}
+        /// <summary>
+        /// Eliminar un proyecto por su ID
+        /// </summary>
+        /// <remarks>
+        /// Solicitud de prueba:
+        /// 
+        /// DELETE http://localhost:xxxx/api/proyectos/{id}
+        /// 
+        /// Ejemplo:
+        /// DELETE http://localhost:xxxx/api/proyectos/1
+        /// </remarks>
+        /// <param name="id">ID del proyecto a eliminar</param>
+        /// <returns>El proyecto eliminado</returns>
         [HttpDelete("{id}")]
         public ResponseAPI<ProyectoDTO> DeleteProyecto(int id)
         { 
